@@ -13,7 +13,7 @@ As a general note, the commands in this tutorial are meant to be run within a te
 To clone the repo use this command:
 
 ```bash
-git clone GIT_URL_HERE
+git clone https://github.com/jorgesisco/Fake-News-Detection-Machine-Learning-Pipeline.git
 ```
 
 The `cd` command allows you to change directories. Assuming you are at the directory where you issued the cloning command, type the following on your terminal.
@@ -74,9 +74,9 @@ conda deactivate
 
 an the activate the enviroment again:
 
-    ```bash
-    conda activate ml-thesis-env
-    ```
+```bash
+conda activate ml-thesis-env
+```
 
 In case you want to delete kernel with the virtual env:
 
@@ -98,7 +98,7 @@ After execution, you will see some information printed on the terminal. Usually 
 
 Within Jupyter lab you should be in the same directory where you used the `jupyter lab` command.
 
-Look for the `model.ipynb` file and open it to begin the ungraded lab.
+Look for the `Notebooks.ipynb` file and open it to begin the ungraded lab.
 
 To stop jupyter lab once you are done with the lab just press `Ctrl + C` (Windows) or `Cmd + C` (Mac) twice on terminal.
 
