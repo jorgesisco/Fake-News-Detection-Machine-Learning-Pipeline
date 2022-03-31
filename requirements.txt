@@ -7,8 +7,6 @@ matplotlib==3.4.2
 tweepy==4.6.0
 python-dotenv=0.19.2
 config==0.5.1
-os==
-
 
 ## Notes:
 
