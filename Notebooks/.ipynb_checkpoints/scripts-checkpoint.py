@@ -13,6 +13,49 @@ tweet_url = []
 username = []
 next_page_token = []
 
+
+def clean_text(text):
+    '''Text Preprocessing '''
+    
+    # Convert words to lower case
+    text = text.lower()
+    
+    # Expand contractions
+    if True:
+        text = text.split()
+        new_text = []
+        for word in text:
+            if word in contractions:
+                new_text.append(contractions[word])
+            else:
+                new_text.append(word)
+        text = " ".join(new_text)
+    
+    # Format words and remove unwanted characters
+    text = re.sub(r'https?:\/\/.*[\r\n]*', '', text, flags=re.MULTILINE)
+    text = re.sub(r'\<a href', ' ', text)
+    text = re.sub(r'&amp;', '', text) 
+    text = re.sub(r'[_"\-;%()|+&=*%.,!?:#$@\[\]/]', ' ', text)
+    text = re.sub(r'<br />', ' ', text)
+    text = re.sub(r'\'', ' ', text)
+    
+    # remove stopwords
+    if remove_stopwords:
+        text = text.split()
+        stops = set(stopwords.words("english"))
+        text = [w for w in text if not w in stops]
+        text = " ".join(text)
+
+    # Tokenize each word
+    text =  nltk.WordPunctTokenizer().tokenize(text)
+    
+    # Lemmatize each token
+    lemm = nltk.stem.WordNetLemmatizer()
+    text = list(map(lambda word:list(map(lemm.lemmatize, word)), text))
+    
+    return text
+
+
 # Creating a function that will take the text from the dataset and remove special characters
 def word_drop(text):
     text = text.lower()
